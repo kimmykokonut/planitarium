@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 import datetime
 
@@ -37,7 +38,7 @@ class Task(models.Model):
   priority = models.IntegerField(choices=PRIORITY_CHOICES, default=2)
   status = models.CharField(max_length=1, choices=STATUS_CHOICES, default='P')
   is_recurring = models.BooleanField(default=False)
-  user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def clean(self):
     if not self.name:
@@ -49,5 +50,3 @@ class Task(models.Model):
 
   def __str__(self):
     return str(self.name)
-
-
