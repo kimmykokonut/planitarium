@@ -7,9 +7,6 @@ from .serializers import CategorySerializer, TagSerializer, TaskSerializer
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 
-def index(request):
-  return HttpResponse("You are at the index page!")
-
 class CategoryViewSet(viewsets.ModelViewSet):
   #ModelViewSet dRF has Crud under the hood. specify model/serializer
   queryset = Category.objects.all().order_by('label')
