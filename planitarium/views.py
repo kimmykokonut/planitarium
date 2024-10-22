@@ -12,13 +12,13 @@ def index(request):
 
 class CategoryViewSet(viewsets.ModelViewSet):
   #ModelViewSet dRF has Crud under the hood. specify model/serializer
-  queryset = Category.objects.all()
+  queryset = Category.objects.all().order_by('label')
   serializer_class = CategorySerializer
 
 class TagViewSet(viewsets.ModelViewSet):
-  queryset = Tag.objects.all()
+  queryset = Tag.objects.all().order_by('label')
   serializer_class = TagSerializer
 
 class TaskViewSet(viewsets.ModelViewSet):
-  queryset = Task.objects.all()
+  queryset = Task.objects.all().order_by('name')
   serializer_class = TaskSerializer

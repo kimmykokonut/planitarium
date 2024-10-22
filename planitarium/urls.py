@@ -4,7 +4,7 @@ from .views import CategoryViewSet, TagViewSet, TaskViewSet
 
 router = DefaultRouter()
 # register vsets w router, endpoints auto generated
-router.register(r'catgories', CategoryViewSet)
+router.register(r'categories', CategoryViewSet)
 router.register(r'tags', TagViewSet)
 router.register(r'tasks', TaskViewSet)
 
